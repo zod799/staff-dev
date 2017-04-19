@@ -1,19 +1,42 @@
 import React from 'react'
 import {Route} from 'react-router-dom'
-import Mission from './pages/Mission/Mission'
-import NavigatingRH from './pages/NavigatingRH/NavigatingRH'
-import Bobnet from './pages/NavigatingRH/pages/Bobnet'
+import Routes from '../config/routes.js'
 
 class Main extends React.Component {
-  constructor (props) {
-    super(props)
+  constructor () {
+    super()
+    this.Routes = Routes
   }
+  getRoutes () {
+    return (
+      this.Routes.map((item, i) => {
+        if (item.routes && item.routes.length > 0) {
+          return (
+            <div key={i}>
+              <Route exact={item.exact} path={item.path} component={item.component} />
+              {this.getSubRoutes(item.routes)}
+            </div>
+          )
+        } else {
+          return (<Route key={i} exact={item.exact} path={item.path} component={item.component} />)
+        }
+      })
+    )
+  }
+  getSubRoutes (routes) {
+    return (
+      routes.map((subitem, i) => {
+        return (
+          <Route key={i} exact={subitem.exact} path={subitem.path} component={subitem.component} />
+        )
+      })
+    )
+  }
+
   render () {
     return (
       <main>
-        <Route exact path='/' component={Mission} />
-        <Route path='/navigating-rh' component={NavigatingRH} />
-        <Route path='/navigating-rh/bobnet' component={Bobnet} />
+        {this.getRoutes()}
       </main>
     )
   }

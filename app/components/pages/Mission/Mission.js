@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Mission = (props) => {
+const Mission = () => {
   return (
     <div>
       <h2>Welcome to the Robert Half Staff Development Resources site!</h2>

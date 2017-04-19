@@ -13,6 +13,16 @@ html, body {
   font-family: Arial, sans-serif;
 }
 
+a, a:link, a:visited {
+  color: rgba(56, 46, 44, 1);
+  text-decoration: underline;
+}
+
+a:hover, a:active {
+  color: #9f1c35;
+  text-decoration: none;
+}
+
 #app {
   height: 100%;
 }
@@ -64,6 +74,10 @@ header h1 {
 
 /* Navigation Styles
    ==================================================*/
+
+nav a, nav a:hover, nav a:link, nav a:visited, nav a:active {
+  text-decoration: none;
+}
 
 nav ul {
   padding: 0;
@@ -120,7 +134,7 @@ nav li a {
 }
 
 #mainNav li a.selected+ul li {
-  margin-bottom: 2px;
+  padding-bottom: 2px;
 }
 
 #mainNav li a.selected+ul li a {
