@@ -28,6 +28,15 @@ import InteractiveInfographic from '../components/pages/Deliverables/pages/Inter
 import WritingStyles from '../components/pages/Deliverables/pages/WritingStyles'
 import WordChoices from '../components/pages/Deliverables/pages/WordChoices'
 import Workingwithfiles from '../components/pages/WorkingWithFiles/Workingwithfiles'
+import FileNaming from '../components/pages/WorkingWithFiles/pages/FileNaming'
+import FolderStructure from '../components/pages/WorkingWithFiles/pages/FolderStructure'
+import Gdrive from '../components/pages/WorkingWithFiles/pages/Gdrive'
+import Xyleme from '../components/pages/WorkingWithFiles/pages/Xyleme'
+import Cornerstone from '../components/pages/WorkingWithFiles/pages/Cornerstone'
+import Screenshots from '../components/pages/WorkingWithFiles/pages/Screenshots'
+import Screencasting from '../components/pages/WorkingWithFiles/pages/Screencasting'
+import Tools from '../components/pages/WorkingWithFiles/pages/Tools'
+import Standards from '../components/pages/WorkingWithFiles/pages/Standards'
 
 const Routes = [
   {
@@ -229,7 +238,62 @@ const Routes = [
     title: 'Working with Files',
     linkname: 'Working with Files',
     bgcolor: '#96C021',
-    routes: []
+    routes: [
+      {
+        path: '/working-with-files/file-naming',
+        component: FileNaming,
+        linkname: 'File Naming',
+        exact: false
+      },
+      {
+        path: '/working-with-files/folder-structure',
+        component: FolderStructure,
+        linkname: 'Folder Structure',
+        exact: false
+      },
+      {
+        path: '/working-with-files/gdrive',
+        component: Gdrive,
+        linkname: 'G Drive',
+        exact: false
+      },
+      {
+        path: '/working-with-files/xyleme',
+        component: Xyleme,
+        linkname: 'Xyleme',
+        exact: false
+      },
+      {
+        path: '/working-with-files/cornerstone',
+        component: Cornerstone,
+        linkname: 'Cornerstone (LMS)',
+        exact: false
+      },
+      {
+        path: '/working-with-files/screenshots',
+        component: Screenshots,
+        linkname: 'Screenshots',
+        exact: false
+      },
+      {
+        path: '/working-with-files/screencasting',
+        component: Screencasting,
+        linkname: 'Screencasting',
+        exact: false
+      },
+      {
+        path: '/working-with-files/tools',
+        component: Tools,
+        linkname: 'Tools',
+        exact: false
+      },
+      {
+        path: '/working-with-files/standards',
+        component: Standards,
+        linkname: 'Standards',
+        exact: false
+      }
+    ]
   }
 ]
 

@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "normalize.css": "^6.0.0",
+    "prop-types": "^15.5.8",
     "react": "^15.5.3",
     "react-dom": "^15.5.3",
     "react-router-dom": "^4.0.0"
