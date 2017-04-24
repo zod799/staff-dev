@@ -21,7 +21,7 @@ const Screencasting = () => {
           <img src={require('../images/img_camtasia-screencast-settings.jpg')} />
         </article>
         <article>
-          <h3>Articulate  Storyline 2</h3>
+          <h3>Articulate Storyline 2</h3>
           <p>Select Area Dimension Settings:</p>
           <ul>
             <li>Custom</li>
