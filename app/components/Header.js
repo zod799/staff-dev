@@ -37,12 +37,12 @@ class Header extends React.Component {
 
   getHeaderTitle () {
     let rinfo = this.getRouteInfo()
-    return (rinfo !== null) ? rinfo.title : 'Staff Development Resources'
+    return (rinfo !== null && rinfo !== undefined) ? rinfo.title : 'Staff Development Resources'
   }
 
   getHeaderColor () {
     let rinfo = this.getRouteInfo()
-    return (rinfo !== null) ? rinfo.bgcolor : '#aaa'
+    return (rinfo !== null && rinfo !== undefined) ? rinfo.bgcolor : '#aaa'
   }
 
   menuList () {
