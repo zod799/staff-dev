@@ -7,14 +7,14 @@ class Main extends React.Component {
     super()
     this.Routes = Routes
   }
-  getRoutes () {
+  getRoutes (r) {
     return (
-      this.Routes.map((item, i) => {
+      r.map((item, i) => {
         if (item.routes && item.routes.length > 0) {
           return (
             <div key={i}>
               <Route exact={item.exact} path={item.path} component={item.component} />
-              {this.getSubRoutes(item.routes)}
+              {this.getRoutes(item.routes)}
             </div>
           )
         } else {
@@ -23,20 +23,11 @@ class Main extends React.Component {
       })
     )
   }
-  getSubRoutes (routes) {
-    return (
-      routes.map((subitem, i) => {
-        return (
-          <Route key={i} exact={subitem.exact} path={subitem.path} component={subitem.component} />
-        )
-      })
-    )
-  }
 
   render () {
     return (
       <main>
-        {this.getRoutes()}
+        {this.getRoutes(this.Routes)}
       </main>
     )
   }

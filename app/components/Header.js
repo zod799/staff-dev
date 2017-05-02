@@ -45,14 +45,14 @@ class Header extends React.Component {
     return (rinfo !== null && rinfo !== undefined) ? rinfo.bgcolor : '#aaa'
   }
 
-  menuList () {
+  menuList (r) {
     return (
-      this.Routes.map((item, i) => {
+      r.map((item, i) => {
         if (item.routes && item.routes.length > 0) {
           return (
-            <li key={i}><NavLink to={item.path} activeClassName='selected' activeStyle={{backgroundColor: item.bgcolor}}>{item.linkname}</NavLink>
-              <ul style={{backgroundColor: item.bgcolor}}>
-                {this.getSublinks(item.routes)}
+            <li key={i}><NavLink to={item.path} className='hasSublist' activeClassName='selected' activeStyle={{backgroundColor: item.bgcolor}}>{item.linkname}</NavLink>
+              <ul className='subList' style={{backgroundColor: item.bgcolor}}>
+                {this.menuList(item.routes)}
               </ul>
             </li>
           )
@@ -61,15 +61,6 @@ class Header extends React.Component {
             <li key={i}><NavLink exact={item.exact} to={item.path} activeClassName='selected' activeStyle={{backgroundColor: item.bgcolor}}>{item.linkname}</NavLink></li>
           )
         }
-      })
-    )
-  }
-  getSublinks (routes) {
-    return (
-      routes.map((subitem, i) => {
-        return (
-          <li key={i}><NavLink exact={subitem.exact} to={subitem.path} activeClassName='selected'>{subitem.linkname}</NavLink></li>
-        )
       })
     )
   }
@@ -86,7 +77,7 @@ class Header extends React.Component {
         <h1>{this.getHeaderTitle()}</h1>
         <nav id='mainNav'>
           <ul>
-            {this.menuList()}
+            {this.menuList(this.Routes)}
           </ul>
         </nav>
       </header>
