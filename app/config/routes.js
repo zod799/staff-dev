@@ -3,8 +3,15 @@ import Top10Tips from '../components/pages/BTold/pages/contentDevStandards/Top10
 import RelatedWords from '../components/pages/BTold/pages/contentDevStandards/Top10Tips/Top10Tips_RelatedWords'
 import The5Cs from '../components/pages/BTold/pages/contentDevStandards/The5Cs'
 import AboutLorem from '../components/pages/BTold/pages/contentDevStandards/AboutLorem'
-import DevelopingImages from '../components/pages/BTold/pages/contentDevStandards/DevelopingImages'
-import DocumentingDialogBox from '../components/pages/BTold/pages/contentDevStandards/DocumentingDialogBox'
+import DevelopingImages from '../components/pages/BTold/pages/contentDevStandards/DevelopingImages/DevelopingImages'
+import ContentConfidentiality from '../components/pages/BTold/pages/contentDevStandards/DevelopingImages/ContentConfidentiality'
+import ScreenCapture from '../components/pages/BTold/pages/contentDevStandards/DevelopingImages/ScreenCapture'
+import ImageEditing from '../components/pages/BTold/pages/contentDevStandards/DevelopingImages/ImageEditing'
+import ImageSizing from '../components/pages/BTold/pages/contentDevStandards/DevelopingImages/ImageSizing'
+import ImageSaving from '../components/pages/BTold/pages/contentDevStandards/DevelopingImages/ImageSaving'
+import SnagItCallout from '../components/pages/BTold/pages/contentDevStandards/DevelopingImages/SnagItCallout'
+import PhotoshopCallout from '../components/pages/BTold/pages/contentDevStandards/DevelopingImages/PhotoshopCallout'
+import DocumentingDialogBox from '../components/pages/BTold/pages/contentDevStandards/DocumentingDialogBox/DocumentingDialogBox'
 import DocumentingMenus from '../components/pages/BTold/pages/contentDevStandards/DocumentingMenus'
 import DocumentingToolbar from '../components/pages/BTold/pages/contentDevStandards/DocumentingToolbar'
 import WordUsage from '../components/pages/BTold/pages/contentDevStandards/WordUsage/WordUsage'
@@ -18,16 +25,16 @@ import WordChoices from '../components/pages/BTold/pages/contentDevStandards/Wor
 import WritingGuidelines from '../components/pages/BTold/pages/contentDevStandards/WritingGuidelines/WritingGuidelines'
 import ParagraphComposition from '../components/pages/BTold/pages/contentDevStandards/WritingGuidelines/WritingGuidelines_paragraph'
 import ActiveVoice from '../components/pages/BTold/pages/contentDevStandards/WritingGuidelines/WritingGuidelines_activeVoice'
-import WritingProcedures from '../components/pages/BTold/pages/contentDevStandards/WritingProcedures'
 import SentenceFormatting from '../components/pages/BTold/pages/SentenceFormatting'
-import CharacterFormatting from '../components/pages/BTold/pages/CharacterFormatting'
+import CharacterFormatting from '../components/pages/BTold/pages/CharacterFormatting/CharacterFormatting'
 import Commas from '../components/pages/BTold/pages/punctuationChecklist/Commas'
+import OverviewPunctuation from '../components/pages/BTold/pages/punctuationChecklist/OverviewPunctuation'
 import MicrosoftWordTips from '../components/pages/BTold/pages/MicrosoftWordTips'
 import Top10TipsForIZ from '../components/pages/BTold/pages/InternationalZoneDevStandards/Top10TipsForIZ'
+import SpellingForInt from '../components/pages/BTold/pages/InternationalZoneDevStandards/SpellingForInt'
 import PageLevelDesign from '../components/pages/BTold/pages/PageLevelDesign'
-import TestTopicGlossary from '../components/pages/BTold/pages/TestTopicGlossary'
 import Glossary from '../components/pages/BTold/pages/Glossary'
-import Index from '../components/pages/BTold/pages/Index'
+import Index from '../components/pages/BTold/pages/PageIndex'
 
 const Routes = [
   {
@@ -106,13 +113,6 @@ const Routes = [
         linkname: 'Documenting Dialog Box'
       },
       {
-        path: '/content-dev-standards/writing-procedures',
-        component: WritingProcedures,
-        exact: true,
-        title: 'Writing Procedures',
-        linkname: 'Writing Procedures'
-      },
-      {
         path: '/content-dev-standards/word-usage',
         component: WordUsage,
         exact: true,
@@ -167,7 +167,50 @@ const Routes = [
         component: DevelopingImages,
         exact: true,
         linkname: 'Developing Images',
-        routes: []
+        routes: [
+          {
+            path: '/content-dev-standards/developing-images/content-confidentiality',
+            component: ContentConfidentiality,
+            exact: false,
+            linkname: 'Content & Confidentiality'
+          },
+          {
+            path: '/content-dev-standards/developing-images/screen-capture',
+            component: ScreenCapture,
+            exact: false,
+            linkname: 'Screen Capture Guidelines'
+          },
+          {
+            path: '/content-dev-standards/developing-images/image-editing',
+            component: ImageEditing,
+            exact: false,
+            linkname: 'Image Editing Guidelines'
+          },
+          {
+            path: '/content-dev-standards/developing-images/image-sizing',
+            component: ImageSizing,
+            exact: false,
+            linkname: 'Image Sizing Guidelines'
+          },
+          {
+            path: '/content-dev-standards/developing-images/image-saving',
+            component: ImageSaving,
+            exact: false,
+            linkname: 'Image Saving Guidelines'
+          },
+          {
+            path: '/content-dev-standards/developing-images/snagit-callout-settings',
+            component: SnagItCallout,
+            exact: false,
+            linkname: 'SnagIt Callout Settings'
+          },
+          {
+            path: '/content-dev-standards/developing-images/photoshop-callout-settings',
+            component: PhotoshopCallout,
+            exact: false,
+            linkname: 'Photoshop Callout Settings'
+          }
+        ]
       },
       {
         path: '/content-dev-standards/about-lorem',
@@ -206,6 +249,12 @@ const Routes = [
         component: Commas,
         exact: false,
         linkname: 'Commas'
+      },
+      {
+        path: '/punctuation-checklist/overview-of-punctuation',
+        component: OverviewPunctuation,
+        exact: false,
+        linkname: 'Brief Overview of Punctuation'
       }
     ]
   },
@@ -230,6 +279,12 @@ const Routes = [
         component: Top10TipsForIZ,
         exact: false,
         linkname: 'Top 10 Tips For IZ'
+      },
+      {
+        path: '/international-zone-development-standards/spelling-for-international-english',
+        component: SpellingForInt,
+        exact: false,
+        linkname: 'Spelling for International English'
       }
     ]
   },
@@ -240,14 +295,6 @@ const Routes = [
     title: 'Page-level Design',
     linkname: 'Page-level Design',
     bgcolor: '#00BBF8'
-  },
-  {
-    path: '/test-topic-for-glossary-terms',
-    component: TestTopicGlossary,
-    exact: true,
-    title: 'Test Topic for Glossary Terms',
-    linkname: 'Test Topic for Glossary Terms',
-    bgcolor: '#F19700'
   },
   {
     path: '/glossary',
