@@ -18,7 +18,7 @@ a, a:link, a:visited, .expandItem {
   text-decoration: underline;
 }
 
-a:hover, a:active, .expandItem:hover, .expandItem.selected {
+a:hover, a:active, .expandItem:hover, .expandItem.selected, .navbacklink:hover {
   color: #9f1c35;
   text-decoration: none;
 }
@@ -62,7 +62,7 @@ main {
 header {
   height: 50px;
   box-sizing: border-box;
-  background-color: #E4D100;
+  background-color: #aaaaaa;
   color: #fff;
   /*box-shadow: 0 10px 10px -7px #000000;*/
   border-bottom: 1px solid #999;
@@ -73,8 +73,37 @@ header h1 {
   padding: 0 10px;
   float: left;
   line-height: 39px;
+  font-size: 28px;
 }
 
+a.backLink {
+    color: #fff;
+    text-decoration: none;
+    right: 15px;
+    line-height: 40px;
+    position: absolute;
+    padding-left: 25px;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+}
+
+a.backLink:before {
+    content: '\021B6';
+    font-size: 1.5em;
+    display: block;
+    position: absolute;
+    left: 3px;
+    top: 1px;
+}
+
+a.navbacklink {
+    color: #333;
+    position: absolute;
+    top: 5px;
+    left: 20px;
+}
 
 /* Navigation Styles
    ==================================================*/
@@ -379,4 +408,10 @@ dd {
 .indexCategory li {
   list-style: none;
   margin-right: 15px;
+}
+
+@media (max-width: 865px) {
+  header h1 {
+    font-size: 20px;
+  }
 }
