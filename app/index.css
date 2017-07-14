@@ -13,18 +13,22 @@ html, body {
   font-family: Arial, sans-serif;
 }
 
-a, a:link, a:visited {
+a, a:link, a:visited, .expandItem {
   color: rgba(56, 46, 44, 1);
   text-decoration: underline;
 }
 
-a:hover, a:active {
+a:hover, a:active, .expandItem:hover, .expandItem.selected, .navbacklink:hover {
   color: #9f1c35;
   text-decoration: none;
 }
 
 #app {
   height: 100%;
+}
+
+.bold {
+  font-weight: 600;
 }
 
 .clearfix:before, .clearfix:after {
@@ -58,7 +62,7 @@ main {
 header {
   height: 50px;
   box-sizing: border-box;
-  background-color: #E4D100;
+  background-color: #aaaaaa;
   color: #fff;
   /*box-shadow: 0 10px 10px -7px #000000;*/
   border-bottom: 1px solid #999;
@@ -69,8 +73,37 @@ header h1 {
   padding: 0 10px;
   float: left;
   line-height: 39px;
+  font-size: 28px;
 }
 
+a.backLink {
+    color: #fff;
+    text-decoration: none;
+    right: 15px;
+    line-height: 40px;
+    position: absolute;
+    padding-left: 25px;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+}
+
+a.backLink:before {
+    content: '\021B6';
+    font-size: 1.5em;
+    display: block;
+    position: absolute;
+    left: 3px;
+    top: 1px;
+}
+
+a.navbacklink {
+    color: #333;
+    position: absolute;
+    top: 5px;
+    left: 20px;
+}
 
 /* Navigation Styles
    ==================================================*/
@@ -91,8 +124,8 @@ nav li a {
 #mainNav {
   position: absolute;
   top: 0;
-  left: -260px;
-  width: 250px;
+  left: -360px;
+  width: 350px;
   height: 100%;
   /*box-shadow: inset -15px 0 10px -15px #000000;*/
   box-shadow: 10px 0 10px -7px rgba(0, 0, 0, 0.3);
@@ -101,7 +134,7 @@ nav li a {
   transition: left 500ms;
   padding-top: 50px;
   background-color: #fff;
-  max-width: 250px;
+  max-width: 350px;
 }
 
 #mainNav li a {
@@ -143,6 +176,7 @@ nav li a {
   border-left: 2px dotted #666;
   margin-left: 40px;
   border-top: none;
+  font-size: 0.9em;
 }
 
 #mainNav li a.selected+ul li a:before {
@@ -163,6 +197,26 @@ nav li a {
   text-decoration: underline;
 }
 
+#mainNav li a.selected+.subList .subList li a {
+  margin-left: 80px;
+}
+
+.subList li {
+  position: relative;
+}
+
+.subList a.hasSublist:after {
+  content: '\025B8';
+  font-size: 26px;
+  position: absolute;
+  top: 2px;
+  text-decoration: none !important;
+}
+
+.subList a.hasSublist.selected:after {
+  content: '\025BE';
+}
+
 
 /*animate left nav*/
 
@@ -172,7 +226,7 @@ nav li a {
 }
 
 #app.change {
-  margin-left: 250px;
+  margin-left: 350px;
   transition: margin-left 500ms;
 }
 
@@ -223,4 +277,141 @@ nav li a {
 .change .bar3 {
   -webkit-transform: rotate(45deg) translate(-8px, -8px);
   transform: rotate(45deg) translate(-8px, -8px);
+}
+
+
+/* Page Styles
+   ==================================================*/
+
+.accordian li {
+  line-height: 23px;
+}
+
+.expandItem {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.expandItem:before {
+  content: "\025B8";
+  font-size: 23px;
+  position: relative;
+  top: 2px;
+  display: inline-block;
+}
+
+.expandItem.selected:before {
+  content: "\025BE"
+}
+
+.expandingblock {
+  display: none;
+  line-height: 1.15;
+  padding: 10px 20px;
+  border: 1px dotted #010101;
+  margin: 0 30px;
+}
+
+.selected+.expandingblock {
+  display: block;
+}
+
+blockquote {
+  padding-left: 10px;
+  border-left: 3px solid #666;
+  font-style: italic;
+}
+
+a.tooltip {
+  position: relative;
+  color: #9f1c35
+}
+
+.tooltip span {
+  position: absolute;
+  color: #000;
+  top: 0;
+  left: 0;
+  display: none;
+  padding: 10px;
+  background-color: #F4F2EC;
+  box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, 0.4);
+  width: 300px;
+  z-index: 1;
+}
+
+.tooltip:hover>span {
+  display: block;
+}
+
+.note {
+  background-color: #EFE8CE;
+  padding: 10px;
+  box-shadow: 2px 2px 7px 0 rgba(0, 0, 0, 0.6);
+  margin: 15px 0;
+}
+
+
+/* Table Styles*/
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 538px;
+  margin-top: 25px;
+}
+
+table tr {
+  text-align: left;
+  vertical-align: top;
+}
+
+table th {
+  background-color: #E5EDF2;
+  text-align: center;
+}
+
+table th, table td {
+  border: 1px solid #010101;
+  padding: 5px;
+}
+
+.clearCol {
+  border-top: none;
+  border-bottom: none;
+}
+
+table.tableNoBorder th, table.tableNoBorder td {
+  border: none;
+}
+
+h4 {
+  color: #003366;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  font-style: italic;
+  font-size: 0.9em;
+  margin-bottom: 15px;
+}
+
+.indexCategory h4 {
+  border-bottom: 1px solid #010101;
+  padding-bottom: 10px;
+  padding-left: 20px;
+}
+
+.indexCategory li {
+  list-style: none;
+  margin-right: 15px;
+}
+
+@media (max-width: 865px) {
+  header h1 {
+    font-size: 20px;
+  }
 }

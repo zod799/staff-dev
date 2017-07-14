@@ -3,6 +3,7 @@ const path = require('path')
 
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var webpack = require('webpack')
 
 var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   template: path.resolve(__dirname, 'app/index.html'),
@@ -11,7 +12,7 @@ var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 })
 var extractCSS = new ExtractTextPlugin('styles.css')
 
-module.exports = {
+var config = {
   entry: [
     './app/index.js'
   ],
@@ -48,3 +49,16 @@ module.exports = {
     extractCSS
   ]
 }
+
+if (process.env.NODE_ENV === 'production') {
+  config.plugins.push(
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin()
+  )
+}
+
+module.exports = config
